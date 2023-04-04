@@ -41,3 +41,12 @@ where not referee_id=2 or referee_id is null;
 /*  Write an SQL query to report all customers who never order anything.  */
 select name as customers from customers
 where id not in (select customerId from orders);
+
+
+/* Write an SQL query to report the name and bonus amount of each employee with a bonus less than 1000.   */
+
+select employee.name, Bonus.bonus from employee
+left join Bonus
+on employee.empid=Bonus.empId
+where Bonus.bonus<1000 or bonus is null;
+
