@@ -18,3 +18,26 @@ Sort the occurrences in ascending order, and output them in the following format
 (select concat('There are a total of ',count(occupation),' ',lower(occupation) ) from occupations 
 group by occupation
 order by count(occupation), occupation);
+
+
+
+/* A country is big if:
+
+it has an area of at least three million (i.e., 3000000 km2), or
+it has a population of at least twenty-five million (i.e., 25000000).
+Write an SQL query to report the name, population, and area of the big countries.   */
+select name, population, area from world
+where area>=3000000 or population>=25000000;
+
+
+/*  Write an SQL query to find the ids of products that are both low fat and recyclable.   */
+select product_id from products
+where low_fats='Y' and recyclable='Y';
+
+/*  Write an SQL query to report the names of the customer that are not referred by the customer with id = 2. */
+select name from customer
+where not referee_id=2 or referee_id is null;
+
+/*  Write an SQL query to report all customers who never order anything.  */
+select name as customers from customers
+where id not in (select customerId from orders);
