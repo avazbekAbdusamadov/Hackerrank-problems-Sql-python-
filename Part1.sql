@@ -34,6 +34,17 @@ where area>=3000000 or population>=25000000;
 select product_id from products
 where low_fats='Y' and recyclable='Y';
 
+
+/*  Write an SQL query to swap all 'f' and 'm' values (i.e., change all 'f' values to 'm' and vice versa) 
+with a single update statement and no intermediate temporary tables.  */
+
+update salary
+set sex=case  sex when 'm' then 'f'
+when 'f' then 'm'
+else null
+end;
+
+
 /*  Write an SQL query to report the names of the customer that are not referred by the customer with id = 2. */
 select name from customer
 where not referee_id=2 or referee_id is null;
